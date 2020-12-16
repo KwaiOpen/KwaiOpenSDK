@@ -1,1 +1,1 @@
-快手开放平台SDK
+# KwaiOpenSDK
