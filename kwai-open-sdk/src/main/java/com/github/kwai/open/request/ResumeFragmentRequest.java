@@ -4,7 +4,7 @@ import com.github.kwai.open.anotation.NotNull;
 import com.github.kwai.open.response.StartUploadResponse;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-16
  */
 public class ResumeFragmentRequest {

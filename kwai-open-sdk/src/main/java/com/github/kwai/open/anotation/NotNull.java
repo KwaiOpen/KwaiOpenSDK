@@ -12,7 +12,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.Target;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-14
  */
 @Target({ METHOD, FIELD, ANNOTATION_TYPE, CONSTRUCTOR, PARAMETER })

@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.kwai.open.model.VideoInfo;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-11
  */
 public class VideoInfoResponse  extends BaseResponse   {

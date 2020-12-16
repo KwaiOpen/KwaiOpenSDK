@@ -10,7 +10,7 @@ import com.github.kwai.open.response.AccessTokenResponse;
 import com.github.kwai.open.response.RefreshTokenResponse;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-10
  */
 public class KwaiOpenOauthApi implements IOpenAPI {

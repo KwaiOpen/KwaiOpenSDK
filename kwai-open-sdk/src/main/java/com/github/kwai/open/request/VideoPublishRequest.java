@@ -9,7 +9,7 @@ import com.github.kwai.open.response.StartUploadResponse;
 import com.github.kwai.open.utils.HttpUtils;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-14
  */
 public class VideoPublishRequest extends BaseOpenApiRequest {

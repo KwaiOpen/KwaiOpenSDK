@@ -3,7 +3,7 @@ package com.github.kwai.open.model;
 import java.util.List;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-14
  */
 public class LiveSceneInfo {

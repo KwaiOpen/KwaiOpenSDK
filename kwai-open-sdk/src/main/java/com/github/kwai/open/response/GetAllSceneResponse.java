@@ -7,7 +7,7 @@ import com.github.kwai.open.KwaiOpenResultCode;
 import com.github.kwai.open.model.LiveSceneInfo;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-14
  */
 public class GetAllSceneResponse extends BaseResponse {

@@ -19,7 +19,7 @@ import com.github.kwai.open.response.UserInfoResponse;
 import com.github.kwai.open.response.UserPhoneResponse;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-10
  */
 public class KwaiOpenUserApi implements IOpenAPI {

@@ -2,7 +2,7 @@ package com.github.kwai.open.response;
 
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-16
  */
 public class UploadFileResponse extends BaseResponse {

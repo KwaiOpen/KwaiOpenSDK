@@ -1,7 +1,7 @@
 package com.github.kwai.open.constant;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-16
  */
 public interface Constant {

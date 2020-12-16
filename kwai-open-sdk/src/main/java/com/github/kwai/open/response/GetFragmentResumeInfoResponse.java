@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.kwai.open.model.FragmentInfo;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-16
  */
 public class GetFragmentResumeInfoResponse extends BaseResponse {

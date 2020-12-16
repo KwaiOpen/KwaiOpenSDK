@@ -5,7 +5,7 @@ import java.util.Map;
 import com.github.kwai.open.api.IOpenAPI;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-14
  */
 public class VideoListRequest extends BaseOpenApiRequest {

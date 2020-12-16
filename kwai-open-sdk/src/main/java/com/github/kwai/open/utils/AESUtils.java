@@ -18,7 +18,7 @@ import com.github.kwai.open.KwaiOpenException;
 import com.github.kwai.open.KwaiOpenResultCode;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-14
  */
 public class AESUtils {

@@ -3,7 +3,7 @@ package com.github.kwai.open;
 /**
  * 开放平台异常
  *
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-10
  */
 public class KwaiOpenException extends Exception {

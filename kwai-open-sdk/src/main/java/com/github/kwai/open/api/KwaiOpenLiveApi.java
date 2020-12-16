@@ -14,7 +14,7 @@ import com.github.kwai.open.response.PushStatusResponse;
 import com.github.kwai.open.response.StopPushResponse;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-10
  */
 public class KwaiOpenLiveApi implements IOpenAPI {

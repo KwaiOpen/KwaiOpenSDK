@@ -36,7 +36,7 @@ import com.github.kwai.open.response.VideoListResponse;
 import com.github.kwai.open.response.VideoPublishResponse;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-10
  */
 public class KwaiOpenVideoApi implements IOpenAPI {

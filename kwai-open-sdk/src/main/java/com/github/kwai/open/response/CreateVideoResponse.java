@@ -3,7 +3,7 @@ package com.github.kwai.open.response;
 import com.github.kwai.open.model.VideoInfo;
 
 /**
- * @author wuge <wuge@kuaishou.com>
+ * @author wuge wuge@kuaishou.com
  * Created on 2020-12-16
  */
 public class CreateVideoResponse extends BaseResponse {
