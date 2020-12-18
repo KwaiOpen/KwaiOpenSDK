@@ -6,7 +6,7 @@
 
     <groupId>com.github.kwaiopen</groupId>
     <artifactId>kwai-open-sdk</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <packaging>jar</packaging>
     <name>kwai-open-sdk</name>
     <description>快手服务端SDK</description>
