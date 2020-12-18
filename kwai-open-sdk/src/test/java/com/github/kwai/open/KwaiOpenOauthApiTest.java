@@ -105,8 +105,7 @@ class KwaiOpenOauthApiTest {
 
     @Test
     void getUserInfo() throws KwaiOpenException {
-        UserInfoRequest request = new UserInfoRequest();
-        request.setAccessToken(accessToken);
+        UserInfoRequest request = new UserInfoRequest(accessToken);
         UserInfoResponse userInfo = kwaiOpenUserApi.getUserInfo(request);
         System.out.println(userInfo);
 
@@ -121,8 +120,7 @@ class KwaiOpenOauthApiTest {
 
     @Test
     void startUpload() throws KwaiOpenException {
-        StartUploadRequest request = new StartUploadRequest();
-        request.setAccessToken(accessToken);
+        StartUploadRequest request = new StartUploadRequest(accessToken);
         StartUploadResponse startUploadResponse = kwaiOpenVideoApi.startUpload(request);
         System.out.println(startUploadResponse);
 
@@ -130,10 +128,9 @@ class KwaiOpenOauthApiTest {
 
     @Test
     void createVideo() throws KwaiOpenException {
-        CreateVideoRequest request = new CreateVideoRequest();
+        CreateVideoRequest request = new CreateVideoRequest(accessToken);
         request.setCaption("一键发布测试");
         request.setCover(demoFile("/Users/wuge/Documents/timg.jpeg"));
-        request.setAccessToken(accessToken);
         request.setVideoFileData(demoFile("/Users/wuge/Documents/1608035947363906.mp4"));
         CreateVideoResponse response = kwaiOpenVideoApi.createVideo(request);
         System.out.println(response);
@@ -143,8 +140,7 @@ class KwaiOpenOauthApiTest {
 
     @Test
     void createSingleVideo() throws KwaiOpenException {
-        StartUploadRequest request = new StartUploadRequest();
-        request.setAccessToken(accessToken);
+        StartUploadRequest request = new StartUploadRequest(accessToken);
         StartUploadResponse startUploadResponse = kwaiOpenVideoApi.startUpload(request);
         System.out.println(startUploadResponse);
         byte[] fileData = demoFile("/Users/wuge/Documents/kwai_video.a7616d99.mp4");
@@ -194,16 +190,16 @@ class KwaiOpenOauthApiTest {
         System.out.println(startUploadResponse);
         byte[] fileData = demoFile("/Users/wuge/Documents/1608035947363906.mp4");
         List<byte[]> bytes = ArrayUtils.splitBytes(fileData, 5 * 1024 * 1024);
-        int fragment = 0;
-        kwaiOpenVideoApi.uploadFileFragment(new UploadFragmentRequest(startUploadResponse, bytes.get(0), fragment));
+        kwaiOpenVideoApi.uploadFileFragment(new UploadFragmentRequest(startUploadResponse, bytes.get(1), 1));
         //模拟传一半断开
 
         ResumeFragmentRequest resumeFragmentRequest = new ResumeFragmentRequest(startUploadResponse, fileData);
         ResumeFragmentResponse resumeFragmentResponse = kwaiOpenVideoApi.resumeFragment(resumeFragmentRequest);
 
+        System.out.println(resumeFragmentResponse);
         byte[] coverData = demoFile("/Users/wuge/Documents/timg.jpeg");
         VideoPublishRequest videoPublishRequest = new VideoPublishRequest();
-        videoPublishRequest.setCaption("测试断点续传功能");
+        videoPublishRequest.setCaption("测试断点续传功能123123");
         videoPublishRequest.setCover(coverData);
         videoPublishRequest.setAccessToken(accessToken);
         videoPublishRequest.setUploadToken(startUploadResponse.getUploadToken());
@@ -227,9 +223,8 @@ class KwaiOpenOauthApiTest {
 
     @Test
     void queryVideoInfo() throws KwaiOpenException {
-        VideoInfoRequest videoInfoRequest = new VideoInfoRequest();
-        videoInfoRequest.setPhotoId("3xqt2f8tmgrk3f2");
-        videoInfoRequest.setAccessToken(accessToken);
+        String photoId = "3xqt2f8tmgrk3f2";
+        VideoInfoRequest videoInfoRequest = new VideoInfoRequest(accessToken, photoId);
         VideoInfoResponse response = kwaiOpenVideoApi.queryVideoInfo(videoInfoRequest);
         System.out.println(response);
     }
@@ -241,7 +236,7 @@ class KwaiOpenOauthApiTest {
         resquest.setCaption("哈哈");
         resquest.setDeviceName("1");
         resquest.setFile(demoFile("/Users/wuge/Documents/timg.jpeg"));
-        resquest.setFileName("cover.jpg");
+
         resquest.setShopLive(false);
         GetPushUrlResponse response = kwaiOpenLiveApi.getPushUrl(resquest);
         System.out.println(response);
@@ -250,27 +245,21 @@ class KwaiOpenOauthApiTest {
     @Test
     void getAllScene() throws KwaiOpenException {
         GetAllSceneRequest request = new GetAllSceneRequest(accessToken);
-        request.setAccessToken(accessToken);
         GetAllSceneResponse response = kwaiOpenLiveApi.getAllScene(request);
         System.out.println(response);
     }
 
     @Test
     void stopPush() throws KwaiOpenException {
-        StopPushRequest request = new StopPushRequest();
-        request.setAccessToken(accessToken);
-        request.setLiveStreamName("Kl_qlOE0V3s");
+        StopPushRequest request = new StopPushRequest(accessToken,"r2g3hs_1MFk");
         StopPushResponse response = kwaiOpenLiveApi.stopPush(request);
         System.out.println(response);
     }
 
     @Test
     void pushStatus() throws KwaiOpenException {
-        PushStatusRequest request = new PushStatusRequest();
-        request.setStreamName("Kl_qlOE0V3s");
-        request.setAccessToken(accessToken);
+        PushStatusRequest request = new PushStatusRequest(accessToken,"MlReVYwOjLQ");
         PushStatusResponse response = kwaiOpenLiveApi.pushStatus(request);
         System.out.println(response);
-
     }
 }

@@ -25,6 +25,10 @@ public class VideoPublishRequest extends BaseOpenApiRequest {
     public VideoPublishRequest() {
     }
 
+    public VideoPublishRequest(String accessToken) {
+        super(accessToken);
+    }
+
     public VideoPublishRequest(CreateVideoRequest createVideoRequest, StartUploadResponse startUploadResponse) {
         super(createVideoRequest.getAccessToken());
         this.uploadToken = startUploadResponse.getUploadToken();

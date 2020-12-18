@@ -25,6 +25,9 @@ public class AccessTokenResponse extends BaseResponse {
 
     private List<String> scopes;
 
+    @JsonProperty("refresh_token_expires_in")
+    private Long refreshTokenExpiresIn;
+
 
     public String getAccessToken() {
         return accessToken;
@@ -66,6 +69,14 @@ public class AccessTokenResponse extends BaseResponse {
         this.scopes = scopes;
     }
 
+    public Long getRefreshTokenExpiresIn() {
+        return refreshTokenExpiresIn;
+    }
+
+    public void setRefreshTokenExpiresIn(Long refreshTokenExpiresIn) {
+        this.refreshTokenExpiresIn = refreshTokenExpiresIn;
+    }
+
     @Override
     public String toString() {
         final StringBuffer sb = new StringBuffer("AccessTokenResponse{");
@@ -74,6 +85,7 @@ public class AccessTokenResponse extends BaseResponse {
         sb.append(", refreshToken='").append(refreshToken).append('\'');
         sb.append(", openId='").append(openId).append('\'');
         sb.append(", scopes=").append(scopes);
+        sb.append(", refreshTokenExpiresIn=").append(refreshTokenExpiresIn);
         sb.append('}');
         return sb.toString();
     }

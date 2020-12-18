@@ -14,7 +14,7 @@ public class GetFragmentResumeInfoResponse extends BaseResponse {
     private Boolean existed;
 
     @JsonProperty("fragment_index")
-    private String fragmentIndex;
+    private Integer fragmentIndex;
 
 
     @JsonProperty("fragment_list")
@@ -35,11 +35,11 @@ public class GetFragmentResumeInfoResponse extends BaseResponse {
         this.existed = existed;
     }
 
-    public String getFragmentIndex() {
+    public Integer getFragmentIndex() {
         return fragmentIndex;
     }
 
-    public void setFragmentIndex(String fragmentIndex) {
+    public void setFragmentIndex(Integer fragmentIndex) {
         this.fragmentIndex = fragmentIndex;
     }
 

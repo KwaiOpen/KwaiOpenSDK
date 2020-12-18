@@ -14,8 +14,6 @@ public class GetPushUrlResquest extends BaseOpenApiRequest {
 
     @NotNull
     private byte[] file;
-    @NotNull
-    private String fileName;
 
     private String caption;
     private Integer panoramic;
@@ -23,20 +21,19 @@ public class GetPushUrlResquest extends BaseOpenApiRequest {
     private String deviceName;
     private Integer liveSceneType;
 
+    public GetPushUrlResquest() {
+    }
+
+    public GetPushUrlResquest(String accessToken) {
+        super(accessToken);
+    }
+
     public byte[] getFile() {
         return file;
     }
 
     public void setFile(byte[] file) {
         this.file = file;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
     }
 
     public String getCaption() {
@@ -105,7 +102,7 @@ public class GetPushUrlResquest extends BaseOpenApiRequest {
         HttpUtils.FileParam fileParam = new HttpUtils.FileParam();
         fileParam.setParam("file");
         fileParam.setFile(file);
-        fileParam.setFileName(fileName);
+        fileParam.setFileName("cover.jpg");
         return fileParam;
     }
 }

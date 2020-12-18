@@ -1,5 +1,6 @@
 package com.github.kwai.open.utils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -46,6 +47,16 @@ public class SignUtils {
             }
         }
         return true;
+    }
+
+    public static void main(String[] args) {
+        String signS = "aac7542d1bd379bec1b0ef5c3bc69df6";
+        Map<String, String> m = new HashMap<>();
+        m.put("A", "123456");
+        m.put("B", "456789");
+
+        System.out.println(sign(m, signS));
+
     }
 
 }

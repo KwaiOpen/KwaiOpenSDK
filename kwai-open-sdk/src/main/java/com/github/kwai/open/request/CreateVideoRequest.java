@@ -8,6 +8,13 @@ import com.github.kwai.open.anotation.NotNull;
  */
 public class CreateVideoRequest extends BaseOpenApiRequest {
 
+    public CreateVideoRequest() {
+    }
+
+    public CreateVideoRequest(String accessToken) {
+        super(accessToken);
+    }
+
     @NotNull
     private byte[] videoFileData;
     @NotNull
