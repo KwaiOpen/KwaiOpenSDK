@@ -52,11 +52,13 @@ import com.github.kwai.open.response.VideoPublishResponse;
  */
 class KwaiOpenOauthApiTest {
 
-    private String accessToken = "*";
-    private String appId = "*";
-    private String appSecret = "*";
-    private String code = "*";
-    private String refreshToken = "*";
+
+    private String accessToken = "";
+    private String appId = "";
+    private String appSecret = "";
+    private String code = "";
+    private String refreshToken = "";
+
 
     private KwaiOpenOauthApi kwaiOpenOauthApi;
     private KwaiOpenUserApi kwaiOpenUserApi;
@@ -145,7 +147,7 @@ class KwaiOpenOauthApiTest {
         System.out.println(startUploadResponse);
         byte[] fileData = demoFile("/Users/wuge/Documents/kwai_video.a7616d99.mp4");
         kwaiOpenVideoApi.uploadFileSingle(new UploadSingleRequest(startUploadResponse, fileData));
-        byte[] coverData = demoFile("/Users/wuge/Documents/timg.jpeg");
+        byte[] coverData = demoFile("/Users/wuge/Documents/1.jpeg");
         VideoPublishRequest videoPublishRequest = new VideoPublishRequest();
         videoPublishRequest.setCaption("测试6");
         videoPublishRequest.setCover(coverData);
@@ -156,22 +158,49 @@ class KwaiOpenOauthApiTest {
     }
 
     @Test
+    void completeFragmentVideo() throws KwaiOpenException {
+        StartUploadResponse startUploadResponse = new StartUploadResponse();
+        startUploadResponse.setEndpoint("upload.kuaishouzt.com");
+        startUploadResponse.setUploadToken("Cg51cGxvYWRlci50b2tlbhKuAkKt7R6P9hwX09kOLVZJK5ujdiKrvwbVUGTmtLieGWoZ92uhwv9bgTF7b23JaP-hnnERP6RT5F8CSXOvPLeKy_1zV4fxcdLg-X_-pHySjUoyES4YdwlvV1OMPZvPXowRbqjbB9yyc8-5PmAdeN0rI3p2a7gmrZ_-cbzlSEW-x4m_B5ZafSFi4XCos4KhncE8kOgZJKzVVPG7HH6eTHiNvAOX0BJBfrspD-_aTxtnJ5cN9ZJ6aKq8b-lDFcKnZ7ll04kB5Fyl240VZqUQI2ZrMwNP8D-nITG7HVmfUpJeuoK48IeJ_GEzJj1wlnqoz4Ib5OdDNgZsdDYofEoda9jNITllCv3_IkqszQe-RNBywfbeJOupItBCLjsdSJRtoxQskIBAbAUyehk_3cEWvVUxGhKAL6qWqRVWWvYFyB90j7CRb7AoBTAC");
+        System.out.println(startUploadResponse);
+        byte[] fileData = demoFile("/Users/wuge/Documents/kwai_video.a7616d99.mp4");
+        List<byte[]> bytes = ArrayUtils.splitBytes(fileData, 5 * 1024 * 1024);
+        int fragment = 0;
+        for (byte[] aByte : bytes) {
+            System.out.println(kwaiOpenVideoApi.uploadFileFragment(new UploadFragmentRequest(startUploadResponse, aByte, fragment)));
+            fragment++;
+        }
+
+        System.out.println(kwaiOpenVideoApi.uploadFileFragmentComplete(new UploadCompleteRequest(startUploadResponse, bytes.size())));
+//
+//        byte[] coverData = demoFile("/Users/wuge/Documents/cUSxlNnGMm-file.jpeg");
+//        VideoPublishRequest videoPublishRequest = new VideoPublishRequest();
+//        videoPublishRequest.setCaption("测试哈哈哈哈好好哄哄耦合");
+//        videoPublishRequest.setCover(coverData);
+//        videoPublishRequest.setAccessToken(accessToken);
+//        videoPublishRequest.setUploadToken(startUploadResponse.getUploadToken());
+//        VideoPublishResponse videoPublishResponse = kwaiOpenVideoApi.videoPublish(videoPublishRequest);
+//        System.out.println(videoPublishResponse);
+
+    }
+
+    @Test
     void createFragmentVideo() throws KwaiOpenException {
         StartUploadRequest request = new StartUploadRequest();
         request.setAccessToken(accessToken);
         StartUploadResponse startUploadResponse = kwaiOpenVideoApi.startUpload(request);
         System.out.println(startUploadResponse);
-        byte[] fileData = demoFile("/Users/wuge/Documents/1608035947363906.mp4");
+        byte[] fileData = demoFile("/Users/wuge/Documents/banner1_1.mp4");
         List<byte[]> bytes = ArrayUtils.splitBytes(fileData, 5 * 1024 * 1024);
         int fragment = 0;
         for (byte[] aByte : bytes) {
-            kwaiOpenVideoApi.uploadFileFragment(new UploadFragmentRequest(startUploadResponse, aByte, fragment));
+            System.out.println(kwaiOpenVideoApi.uploadFileFragment(new UploadFragmentRequest(startUploadResponse, aByte, fragment)));
             fragment++;
         }
 
-        kwaiOpenVideoApi.uploadFileFragmentComplete(new UploadCompleteRequest(startUploadResponse, bytes.size()));
+        System.out.println(kwaiOpenVideoApi.uploadFileFragmentComplete(new UploadCompleteRequest(startUploadResponse, bytes.size())));
 
-        byte[] coverData = demoFile("/Users/wuge/Documents/timg.jpeg");
+        byte[] coverData = demoFile("/Users/wuge/Documents/cUSxlNnGMm-file.jpeg");
         VideoPublishRequest videoPublishRequest = new VideoPublishRequest();
         videoPublishRequest.setCaption("测试哈哈哈哈好好哄哄耦合");
         videoPublishRequest.setCover(coverData);
@@ -223,7 +252,7 @@ class KwaiOpenOauthApiTest {
 
     @Test
     void queryVideoInfo() throws KwaiOpenException {
-        String photoId = "3xqt2f8tmgrk3f2";
+        String photoId = "3x375uhgex6ywri";
         VideoInfoRequest videoInfoRequest = new VideoInfoRequest(accessToken, photoId);
         VideoInfoResponse response = kwaiOpenVideoApi.queryVideoInfo(videoInfoRequest);
         System.out.println(response);

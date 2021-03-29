@@ -40,5 +40,12 @@ public class BaseResponse {
         return KwaiOpenResultCode.valueOf(result);
     }
 
-
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("BaseResponse{");
+        sb.append("result=").append(result);
+        sb.append(", errorMsg='").append(errorMsg).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }

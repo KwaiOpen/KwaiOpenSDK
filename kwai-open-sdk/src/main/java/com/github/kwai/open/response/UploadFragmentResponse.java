@@ -28,4 +28,13 @@ public class UploadFragmentResponse  extends BaseResponse  {
     public void setSize(Long size) {
         this.size = size;
     }
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("UploadFragmentResponse{");
+        sb.append("checksum='").append(checksum).append('\'');
+        sb.append(", size=").append(size);
+        sb.append('}');
+        return sb.toString();
+    }
 }
