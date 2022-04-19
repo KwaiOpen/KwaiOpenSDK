@@ -22,6 +22,8 @@ public class VideoPublishRequest extends BaseOpenApiRequest {
     @NotNull
     private byte[] cover;
 
+    private Long merchantProductId;
+
     public VideoPublishRequest() {
     }
 
@@ -35,6 +37,7 @@ public class VideoPublishRequest extends BaseOpenApiRequest {
         this.caption = createVideoRequest.getCaption();
         this.stereoType = createVideoRequest.getStereoType();
         this.cover = createVideoRequest.getCover();
+        this.merchantProductId = createVideoRequest.getMerchantProductId();
     }
 
     public VideoPublishRequest(String accessToken, String uploadToken, String caption, String stereoType, byte[] cover) {
@@ -43,6 +46,15 @@ public class VideoPublishRequest extends BaseOpenApiRequest {
         this.caption = caption;
         this.stereoType = stereoType;
         this.cover = cover;
+    }
+
+    public VideoPublishRequest(String accessToken, String uploadToken, String caption, String stereoType, byte[] cover, Long merchantProductId) {
+        super(accessToken);
+        this.uploadToken = uploadToken;
+        this.caption = caption;
+        this.stereoType = stereoType;
+        this.cover = cover;
+        this.merchantProductId = merchantProductId;
     }
 
     public String getUploadToken() {
@@ -77,6 +89,14 @@ public class VideoPublishRequest extends BaseOpenApiRequest {
         this.cover = cover;
     }
 
+    public Long getMerchantProductId() {
+        return merchantProductId;
+    }
+
+    public void setMerchantProductId(Long merchantProductId) {
+        this.merchantProductId = merchantProductId;
+    }
+
     @Override
     public Map<String, Object> toQueryParam(IOpenAPI openAPI) {
         Map<String, Object> map = super.toQueryParam(openAPI);
@@ -90,6 +110,11 @@ public class VideoPublishRequest extends BaseOpenApiRequest {
         if (stereoType != null) {
             map.put("stereo_type", stereoType);
         }
+
+        if (merchantProductId != null) {
+            map.put("merchant_product_id", merchantProductId);
+        }
+
         return map;
     }
 

@@ -22,6 +22,7 @@ public class CreateVideoRequest extends BaseOpenApiRequest {
     @NotNull
     private byte[] cover;
     private String stereoType;
+    private Long merchantProductId;
 
     public byte[] getVideoFileData() {
         return videoFileData;
@@ -53,5 +54,13 @@ public class CreateVideoRequest extends BaseOpenApiRequest {
 
     public void setStereoType(String stereoType) {
         this.stereoType = stereoType;
+    }
+
+    public Long getMerchantProductId() {
+        return merchantProductId;
+    }
+
+    public void setMerchantProductId(Long merchantProductId) {
+        this.merchantProductId = merchantProductId;
     }
 }
